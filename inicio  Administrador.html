@@ -33,6 +33,27 @@
     
     <div class="strip bottom-strip"></div>
 
+    <script>
+        // Definir usuario y contraseña correctos
+        const usuarioCorrecto = "admin";  // Usuario predefinido
+        const contraseñaCorrecta = "12345";  // Contraseña predefinida
+
+        document.getElementById('loginButton').addEventListener('click', function() {
+            // Obtener los valores ingresados en los campos
+            const usuario = document.getElementById('usuario').value;
+            const contraseña = document.getElementById('contraseña').value;
+
+            // Validar si el usuario y la contraseña son correctos
+            if (usuario === usuarioCorrecto && contraseña === contraseñaCorrecta) {
+                // Redirigir al menú principal si las credenciales son correctas
+                window.location.href = 'menu.html';  // Redirige a la página del menú
+            } else {
+                // Mostrar un mensaje de error si las credenciales no son correctas
+                alert("Usuario o contraseña incorrectos. Por favor, inténtelo de nuevo.");
+            }
+        });
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>
