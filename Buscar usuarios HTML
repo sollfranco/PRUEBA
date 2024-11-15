@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Usuarios</title>
+    <link rel="stylesheet" href="lol.css">
+</head>
+<body>
+    <div class="search-container">
+        <h2>Buscar usuarios</h2>
+        <input type="text" placeholder="Buscar usuario" class="search-input" id="searchInput">
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo de rol</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Dirección</th>
+                    <th>Matrícula institucional</th>
+                    <th>Fotografía</th>
+                    <th>QR</th>
+                </tr>
+            </thead>
+            <tbody id="userTable">
+                <tr>
+                    <td>Estudiante</td>
+                    <td>Juan</td>
+                    <td>Pérez</td>
+                    <td>Calle 1</td>
+                    <td>12345</td>
+                    <td><img src="foto1.jpg" alt="Foto" width="50"></td>
+                    <td>QR1</td>
+                </tr>
+                <tr>
+                    <td>Docente</td>
+                    <td>María</td>
+                    <td>García</td>
+                    <td>Calle 2</td>
+                    <td>23456</td>
+                    <td><img src="foto2.jpg" alt="Foto" width="50"></td>
+                    <td>QR2</td>
+                </tr>
+                <tr>
+                    <td>Estudiante</td>
+                    <td>Carlos</td>
+                    <td>López</td>
+                    <td>Calle 3</td>
+                    <td>34567</td>
+                    <td><img src="foto3.jpg" alt="Foto" width="50"></td>
+                    <td>QR3</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><img src=></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><img src=></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="pa.js"></script>
+</body>
+</html>
