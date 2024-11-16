@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú Principal</title>
-    <link rel="stylesheet" href="menu.css">
     <style>
         * {
             margin: 0;
@@ -59,24 +58,52 @@
             border-bottom: 1px solid #fff;
             display: flex;
             align-items: center;
+            position: relative; /* Para el posicionamiento del submenú */
+            flex-direction: column; /* Para que el submenú esté debajo */
         }
 
         .sidebar ul li a {
             color: white;
             text-decoration: none;
-            display: flex;
-            align-items: center;
+            display: block;
             width: 100%;
-        }
-
-        .sidebar-logo {
-            width: 20px;
-            height: 20px;
-            margin-left: 10px;
+            padding: 5px 10px;
         }
 
         .sidebar ul li:hover {
             background-color: #155e53;
+        }
+
+        /* Estilo para los submenús */
+        .submenu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%; /* Posiciona el submenú debajo del elemento principal */
+            left: 0;
+            width: 100%;
+            background-color: #12524a;
+            padding: 10px 0;
+            border-radius: 5px; /* Esquinas redondeadas */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+            z-index: 10; /* Asegura que el submenú esté encima */
+        }
+
+        .sidebar ul li:hover .submenu {
+            display: flex; /* Muestra el submenú al pasar el cursor */
+        }
+
+        .submenu a {
+            color: #ffffff;
+            padding: 8px 20px;
+            text-decoration: none;
+            font-size: 14px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .submenu a:hover {
+            background-color: #0e423b; /* Un tono más oscuro al pasar el cursor */
         }
 
         /* Contenedor dinámico */
@@ -84,7 +111,7 @@
             flex-grow: 1;
             background-color: #f9f9f9;
             overflow: auto;
-            padding: 10px;
+            padding: 20px;
         }
 
         #dynamic-content iframe {
@@ -127,9 +154,9 @@
                 </li>
                 <li>
                     <a href="#">Salir</a>
-                    <a href="#" onclick="loadContent('Salir.html')">Salir</a>
-
-
+                    <div class="submenu">
+                        <a href="#" onclick="loadContent('Salir.html')">Cerrar sesión</a>
+                    </div>
                 </li>
             </ul>
         </nav>
