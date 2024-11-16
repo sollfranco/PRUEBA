@@ -25,10 +25,20 @@
         <p class="message">Si desea salir haga clic en Cerrar sesión o en Cancelar para continuar trabajando.</p>
         
         <div class="button-container">
-            <button class="button salir">Cerrar sesión</button>
-            <button class="button cancelar">Cancelar</button>
+            <button class="button salir" onclick="salir()">Cerrar sesión</button>
+            <button class="button cancelar" onclick="cancelar()">Cancelar</button>
         </div>
     </div>
+
+    <script>
+        function salir() {
+            window.location.href = "bienvenido.html";
+        }
+
+        function cancelar() {
+            window.location.href = "menu.html";
+        }
+    </script>
 
 </body>
 </html>
