@@ -4,77 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Usuarios</title>
-    <link rel="stylesheet" href="lol.css">
+    <link rel="stylesheet" href="buscar_usuarios.css">
 </head>
 <body>
-    <div class="search-container">
-        <h2>Buscar usuarios</h2>
-        <input type="text" placeholder="Buscar usuario" class="search-input" id="searchInput">
+
+    <!-- Barra superior -->
+    <div class="header">
+        <div class="top-bar">
+            <h3>Buscar Usuarios</h3>
+            <div class="logo-top">
+                <img src="https://pbs.twimg.com/profile_images/1033474303/logoCbta_400x400.jpg" alt="CBTa 190">
+            </div>
+        </div>
     </div>
 
-    <div class="table-container">
-        <table>
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        <h1 class="title">Listado de Usuarios</h1>
+        
+        <!-- Barra de búsqueda -->
+        <div class="search-container">
+            <input type="text" placeholder="Buscar por nombre o teléfono..." id="searchInput">
+            <button onclick="buscarUsuario()">Buscar</button>
+        </div>
+
+        <!-- Tabla de usuarios -->
+        <table class="user-table">
             <thead>
                 <tr>
-                    <th>Tipo de rol</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Dirección</th>
-                    <th>Matrícula institucional</th>
-                    <th>Fotografía</th>
-                    <th>QR</th>
+                    <th>Nombre Completo</th>
+                    <th>Teléfono</th>
+                    <th>Rol</th>
+                    <th>Tipo de Usuario</th>
+                    <th>Código QR</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody id="userTable">
+            <tbody id="userTableBody">
+                <!-- Ejemplo de fila -->
                 <tr>
-                    <td>Estudiante</td>
-                    <td>Juan</td>
-                    <td>Pérez</td>
-                    <td>Calle 1</td>
-                    <td>12345</td>
-                    <td><img src="foto1.jpg" alt="Foto" width="50"></td>
-                    <td>QR1</td>
-                </tr>
-                <tr>
+                    <td>Juan Pérez</td>
+                    <td>555-1234</td>
                     <td>Docente</td>
-                    <td>María</td>
-                    <td>García</td>
-                    <td>Calle 2</td>
-                    <td>23456</td>
-                    <td><img src="foto2.jpg" alt="Foto" width="50"></td>
-                    <td>QR2</td>
+                    <td>Permanente</td>
+                    <td><img src="codigo_qr.png" alt="Código QR" class="qr-image"></td>
+                    <td><button class="edit-button" onclick="editarUsuario()">Editar</button></td>
                 </tr>
-                <tr>
-                    <td>Estudiante</td>
-                    <td>Carlos</td>
-                    <td>López</td>
-                    <td>Calle 3</td>
-                    <td>34567</td>
-                    <td><img src="foto3.jpg" alt="Foto" width="50"></td>
-                    <td>QR3</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><img src=></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><img src=></td>
-                    <td></td>
-                </tr>
+                <!-- Más filas de ejemplo pueden ir aquí -->
             </tbody>
         </table>
     </div>
 
-    <script src="pa.js"></script>
+    <script>
+        function buscarUsuario() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            // Aquí puedes agregar la lógica para filtrar los usuarios en la tabla
+            alert(`Buscando usuario: ${input}`);
+        }
+
+        function editarUsuario() {
+            alert("Editar usuario (lógica de edición pendiente)");
+        }
+    </script>
+
 </body>
 </html>
