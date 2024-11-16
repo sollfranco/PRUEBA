@@ -26,7 +26,6 @@
         </div>
     </div>
     
-    <!-- Logo en la parte inferior con enlace en línea -->
     <div class="footer-logo">
         <img src="https://pbs.twimg.com/profile_images/1033474303/logoCbta_400x400.jpg" alt="CBTa 190">
     </div>
@@ -34,18 +33,17 @@
     <div class="strip bottom-strip"></div>
 
     <script>
-        // Definir usuario y contraseña correctos
-        const usuarioCorrecto = "admin";  // Usuario predefinido
-        const contraseñaCorrecta = "12345";  // Contraseña predefinida
+        const usuarioCorrecto = "admin"; 
+        const contraseñaCorrecta = "12345";  
 
         document.getElementById('loginButton').addEventListener('click', function() {
-            // Obtener los valores ingresados en los campos
+            
             const usuario = document.getElementById('usuario').value;
             const contraseña = document.getElementById('contraseña').value;
 
-            // Validar si el usuario y la contraseña son correctos
+        
             if (usuario === usuarioCorrecto && contraseña === contraseñaCorrecta) {
-                // Redirigir al menú principal si las credenciales son correctas
+               
                 window.location.href = 'menu.html';  // Redirige a la página del menú
             } else {
                 // Mostrar un mensaje de error si las credenciales no son correctas
