@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Usuario</title>
+    <link rel="stylesheet" href="modificar_usuario.css">
+</head>
+<body>
+
+    <!-- Barra superior -->
+    <div class="header">
+        <div class="top-bar">
+            <h3>Modificar Usuario</h3>
+            <div class="logo-top">
+                <img src="https://pbs.twimg.com/profile_images/1033474303/logoCbta_400x400.jpg" alt="CBTa 190">
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        <h1 class="title">Modificar Información del Usuario</h1>
+        <p class="message">Actualice los datos del usuario según sea necesario.</p>
+
+        <form class="form-container">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required value="Nombre Existente">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required value="555-1234">
+            </div>
+            <div class="form-group">
+                <label for="rol">Rol:</label>
+                <select id="rol" name="rol">
+                    <option value="docente">Docente</option>
+                    <option value="administrativo">Administrativo</option>
+                    <option value="visitante">Visitante</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tipo_usuario">Tipo de Usuario:</label>
+                <select id="tipo_usuario" name="tipo_usuario">
+                    <option value="permanente">Permanente</option>
+                    <option value="temporal">Temporal</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="qr_code">Código QR:</label>
+                <input type="text" id="qr_code" name="qr_code" value="Código QR Actual" disabled>
+            </div>
+            <div class="form-group">
+                <label for="fotografia">Actualizar Fotografía:</label>
+                <input type="file" id="fotografia" name="fotografia" accept="image/*">
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="button guardar">Guardar Cambios</button>
+                <button type="button" class="button cancelar" onclick="cancelarEdicion()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function cancelarEdicion() {
+            // Aquí puedes agregar la lógica para volver a la pantalla anterior sin guardar cambios
+            window.location.href = ""; // Cambia la URL según sea necesario
+        }
+    </script>
+
+</body>
+</html>

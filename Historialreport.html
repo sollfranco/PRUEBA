@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Reportes</title>
+    <link rel="stylesheet" href="historial_reportes.css">
+</head>
+<body>
+
+    <!-- Barra superior -->
+    <div class="header">
+        <div class="top-bar">
+            <h3>Historial de Reportes</h3>
+            <div class="logo-top">
+                <img src="https://pbs.twimg.com/profile_images/1033474303/logoCbta_400x400.jpg" alt="CBTa 190">
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        <h1 class="title">Historial de Reportes Generados</h1>
+
+        <table class="history-report-table">
+            <thead>
+                <tr>
+                    <th>Fecha de Generación</th>
+                    <th>Tipo de Reporte</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="historyReportBody">
+                <!-- Ejemplo de datos -->
+                <tr>
+                    <td>2024-11-10</td>
+                    <td>Reporte de Asistencia</td>
+                    <td><button onclick="verReporte()">Ver</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function verReporte() {
+            // Lógica para ver un reporte específico
+            alert("Mostrando reporte seleccionado");
+        }
+    </script>
+
+</body>
+</html>

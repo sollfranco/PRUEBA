@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Docentes</title>
+    <link rel="stylesheet" href="buscar_docentes.css">
+</head>
+<body>
+
+    <!-- Barra superior -->
+    <div class="header">
+        <div class="top-bar">
+            <h3>Buscar Docentes</h3>
+            <div class="logo-top">
+                <img src="https://pbs.twimg.com/profile_images/1033474303/logoCbta_400x400.jpg" alt="CBTa 190">
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        <h1 class="title">Listado de Docentes</h1>
+        
+        <!-- Barra de búsqueda -->
+        <div class="search-container">
+            <input type="text" placeholder="Buscar por nombre o teléfono..." id="searchInput">
+            <button onclick="buscarDocente()">Buscar</button>
+        </div>
+
+        <!-- Tabla de docentes -->
+        <table class="teacher-table">
+            <thead>
+                <tr>
+                    <th>Nombre Completo</th>
+                    <th>Teléfono</th>
+                    <th>Correo Electrónico</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="teacherTableBody">
+                <!-- Ejemplo de fila -->
+                <tr>
+                    <td>Juan Pérez</td>
+                    <td>555-1234</td>
+                    <td>juan.perez@cbta190.edu.mx</td>
+                    <td><button class="edit-button" onclick="editarDocente()">Editar</button></td>
+                </tr>
+                <!-- Más filas de ejemplo pueden ir aquí -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function buscarDocente() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            alert(`Buscando docente: ${input}`);
+            // Aquí puedes agregar la lógica para filtrar los docentes en la tabla
+        }
+
+        function editarDocente() {
+            alert("Editar docente (lógica de edición pendiente)");
+        }
+    </script>
+
+</body>
+</html>

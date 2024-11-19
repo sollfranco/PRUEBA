@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cierre de sesión</title>
+    <link rel="stylesheet" href="salir.css">
+</head>
+<body>
+
+    <!-- Barra superior -->
+    <div class="header">
+        <div class="top-bar">
+            <h3>Salir</h3>
+            <div class="logo-top">
+                <img src="https://pbs.twimg.com/profile_images/1033474303/logoCbta_400x400.jpg" alt="CBTa 190">
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        <h1 class="title">CIERRE DE SESIÓN ADMINISTRADOR</h1>
+        <p><center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWOr_aVROn2yOt3gYxnht3ssYW0-oqOdBl_Q&s" alt="CBTa 190"></center></p>
+        <p class="message">Si desea salir haga clic en Cerrar sesión o en Cancelar para continuar trabajando.</p>
+        
+        <div class="button-container">
+            <button class="button salir" onclick="salir()">Cerrar sesión</button>
+            <button class="button cancelar" onclick="cancelar()">Cancelar</button>
+        </div>
+    </div>
+
+    <script>
+        function salir() {
+            window.location.href = "Inicio Administrador.html";
+        }
+
+        function cancelar() {
+            window.location.href = "menu.html";
+        }
+    </script>
+
+</body>
+</html>

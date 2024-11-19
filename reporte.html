@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Asistencia</title>
+    <link rel="stylesheet" href="reporte_asistencia.css">
+</head>
+<body>
+
+    <!-- Barra superior -->
+    <div class="header">
+        <div class="top-bar">
+            <h3>Reporte de Asistencia</h3>
+            <div class="logo-top">
+                <img src="https://pbs.twimg.com/profile_images/1033474303/logoCbta_400x400.jpg" alt="CBTa 190">
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        <h1 class="title">Asistencia por Día</h1>
+        <p class="message">Seleccione la fecha para ver la asistencia de los usuarios.</p>
+
+        <div class="date-selector">
+            <label for="date">Fecha:</label>
+            <input type="date" id="date">
+            <button onclick="generarReporte()">Generar Reporte</button>
+        </div>
+
+        <table class="attendance-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Hora de Entrada</th>
+                    <th>Hora de Salida</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody id="attendanceBody">
+                <!-- Ejemplo de datos -->
+                <tr>
+                    <td>Juan Pérez</td>
+                    <td>08:00</td>
+                    <td>15:00</td>
+                    <td>Presente</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function generarReporte() {
+            // Lógica para generar el reporte basado en la fecha seleccionada
+            alert("Generando reporte de asistencia");
+        }
+    </script>
+
+</body>
+</html>

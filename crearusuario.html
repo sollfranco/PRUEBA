@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Usuario</title>
+    <link rel="stylesheet" href="crear_usuario.css">
+</head>
+<body>
+
+    <!-- Barra superior -->
+    <div class="header">
+        <div class="top-bar">
+            <h3>Crear Usuario</h3>
+            <div class="logo-top">
+                <img src="https://pbs.twimg.com/profile_images/1033474303/logoCbta_400x400.jpg" alt="CBTa 190">
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        <h1 class="title">Registro de Nuevo Usuario</h1>
+        <p class="message">Complete los datos del nuevo usuario.</p>
+
+        <form class="form-container">
+            <!-- Selección de rol -->
+            <div class="form-group">
+                <label for="rol">Rol:</label>
+                <select id="rol" name="rol" onchange="mostrarCampos()">
+                    <option value="docente">Docente</option>
+                    <option value="administrativo">Administrativo</option>
+                    <option value="visitante">Visitante</option>
+                </select>
+            </div>
+
+            <!-- Campos generales -->
+            <div id="campos-generales">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono">
+                </div>
+                <div class="form-group">
+                    <label for="tipo_usuario">Tipo de Usuario:</label>
+                    <select id="tipo_usuario" name="tipo_usuario">
+                        <option value="permanente">Permanente</option>
+                        <option value="temporal">Temporal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="qr_code">Generar Código QR:</label>
+                    <button type="button" onclick="generarQR()">Generar</button>
+                    <div id="qr_code_display"></div>
+                </div>
+                <div class="form-group">
+                    <label for="fotografia">Fotografía:</label>
+                    <input type="file" id="fotografia" name="fotografia" accept="image/*">
+                </div>
+            </div>
+
+            <!-- Campos para visitante -->
+            <div id="campos-visitante" style="display: none;">
+                <div class="form-group">
+                    <label for="grupo">Grupo:</label>
+                    <select id="grupo" name="grupo" onchange="actualizarIdGrupo()">
+                        <option value="padres_familia">Padres de Familia</option>
+                        <option value="trabajadores_externos">Trabajadores Externos</option>
+                        <option value="sep">SEP</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="numero_visitante">Número de Visitante:</label>
+                    <input type="text" id="numero_visitante" name="numero_visitante" readonly>
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="button-container">
+                <button type="submit" class="button guardar">Guardar</button>
+                <button type="button" class="button cancelar" onclick="cancelar()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Incluye el archivo local qrcode.min.js -->
+    <script src="qrcode.min.js"></script>
+
+    <script>
+        const grupos = {
+            "padres_familia": 1,
+            "trabajadores_externos": 2,
+            "sep": 3
+        };
+
+        let visitantesContador = {
+            "padres_familia": 0,
+            "trabajadores_externos": 0,
+            "sep": 0
+        };
+
+        // Función para mostrar/ocultar campos según el rol
+        function mostrarCampos() {
+            const rol = document.getElementById('rol').value;
+            const camposGenerales = document.getElementById('campos-generales');
+            const camposVisitante = document.getElementById('campos-visitante');
+
+            if (rol === 'visitante') {
+                camposGenerales.style.display = 'none';
+                camposVisitante.style.display = 'block';
+            } else {
+                camposGenerales.style.display = 'block';
+                camposVisitante.style.display = 'none';
+            }
+        }
+
+        // Función para actualizar el ID del grupo y el número de visitante
+        function actualizarIdGrupo() {
+            const grupo = document.getElementById('grupo').value;
+            const idGrupo = grupos[grupo];
+            const contador = visitantesContador[grupo];
+
+            const letra = String.fromCharCode(65 + contador); // A = 65, B = 66, ...
+            const numeroVisitante = `${idGrupo}-${letra}`;
+
+            document.getElementById('numero_visitante').value = numeroVisitante;
+            visitantesContador[grupo]++;
+            if (visitantesContador[grupo] >= 11) {
+                visitantesContador[grupo] = 0;
+            }
+        }
+
+        // Función para generar el QR
+        function generarQR() {
+            const rol = document.getElementById('rol').value;
+            let qrContent = "";
+
+            if (rol === "visitante") {
+                const grupo = document.getElementById('grupo').value;
+                const numeroVisitante = document.getElementById('numero_visitante').value;
+                qrContent = `Rol: Visitante, Grupo: ${grupo}, ID: ${numeroVisitante}`;
+            } else {
+                const nombre = document.getElementById('nombre').value.trim();
+                const telefono = document.getElementById('telefono').value.trim();
+                const tipoUsuario = document.getElementById('tipo_usuario').value;
+
+                if (!nombre || !telefono) {
+                    alert("Por favor, complete todos los campos.");
+                    return;
+                }
+
+                qrContent = `Nombre: ${nombre}, Teléfono: ${telefono}, Rol: ${rol}, Tipo de Usuario: ${tipoUsuario}`;
+            }
+
+            document.getElementById('qr_code_display').innerHTML = '';
+            new QRCode(document.getElementById("qr_code_display"), {
+                text: qrContent,
+                width: 128,
+                height: 128
+            });
+        }
+
+        // Función para cancelar
+        function cancelar() {
+            window.location.href = ""; // Redirigir a una página específica
+        }
+    </script>
+
+</body>
+</html>
